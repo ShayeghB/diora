@@ -7,16 +7,19 @@ import torch
 
 from tqdm import tqdm
 
+import sys
+sys.path.insert(1, '/local/ssd_1/behzad/GKD/OtherProjs/diora/pytorch/')
+
+from diora.logging.configuration import get_logger
+
 from train import argument_parser, parse_args, configure
 from train import get_validation_dataset, get_validation_iterator
 from train import build_net
 
-from diora.logging.configuration import get_logger
-
 from diora.analysis.cky import ParsePredictor as CKY
 
 
-punctuation_words = set([x.lower() for x in ['.', ',', ':', '-LRB-', '-RRB-', '\'\'',
+punctuation_words = set([x.lower() for x in ['.', '`', ',', ':', '-LRB-', '-RRB-', '\'\'',
     '``', '--', ';', '-', '?', '!', '...', '-LCB-', '-RCB-']])
 
 
